@@ -1,3 +1,5 @@
+import { randomUUID } from "crypto";
+
 import { ICreateState } from "../interfaces/ICreateState";
 import { States } from "../models/states";
 
@@ -16,4 +18,12 @@ describe("Test for state Model", () => {
     expect(state.createdAt).toBeInstanceOf(Date);
     expect(state.updatedAt).toBeInstanceOf(Date);
   });
+  const requestStatewithId: ICreateState = {
+    id: randomUUID(),
+    state: "Minas Gerais",
+    ddd: "38",
+    sigla: "Mg",
+  };
+  const stateWithId = new States(requestStatewithId);
+  expect(stateWithId.id).toStrictEqual(requestStatewithId.id);
 });

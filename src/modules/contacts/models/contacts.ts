@@ -11,7 +11,7 @@ export class Contacts {
   createdAt: Date;
   updatedAt: Date;
   constructor(propsCreateContact: ICreateContact) {
-    this.id = randomUUID();
+    this.id = propsCreateContact.id ?? randomUUID();
     this.name = propsCreateContact.name;
     this.phone = propsCreateContact.phone;
     this.group = propsCreateContact.group ?? [];

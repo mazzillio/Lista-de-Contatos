@@ -10,7 +10,7 @@ export class States {
   createdAt: Date;
   updatedAt: Date;
   constructor(propsCreateState: ICreateState) {
-    this.id = randomUUID();
+    this.id = propsCreateState.id ?? randomUUID();
     this.sigla = propsCreateState.sigla;
     this.state = propsCreateState.state;
     this.ddd = propsCreateState.ddd;

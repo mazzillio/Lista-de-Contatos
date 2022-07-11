@@ -26,12 +26,15 @@ describe("test contacts model", () => {
     expect(contactWithoutGroup.updatedAt).toBeInstanceOf(Date);
   });
   const requestContactWithGroup: ICreateContact = {
+    id: randomUUID(),
     name: "mattheus",
     phone: "999887766",
     stateNumber: randomUUID(),
     group: [randomUUID()],
   };
-  expect(requestContactWithGroup.group).toStrictEqual(
-    requestContactWithGroup.group
+  const concatWithAllPropriets = new Contacts(requestContactWithGroup);
+  expect(concatWithAllPropriets.id).toStrictEqual(requestContactWithGroup.id);
+  expect(concatWithAllPropriets.group).toStrictEqual(
+    concatWithAllPropriets.group
   );
 });

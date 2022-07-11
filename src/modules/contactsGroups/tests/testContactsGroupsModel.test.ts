@@ -1,3 +1,5 @@
+import { randomUUID } from "crypto";
+
 import { ICreateContactsGroups } from "../interfaces/ICreateContactsGroups";
 import { ContactsGroups } from "../models/contactsGroupsModel";
 
@@ -15,5 +17,16 @@ describe("test for model contactsGroups", () => {
     );
     expect(contactGroup.createdAt).toBeInstanceOf(Date);
     expect(contactGroup.updatedAt).toBeInstanceOf(Date);
+    const requestContactsGroupAllProprierts: ICreateContactsGroups = {
+      id: randomUUID(),
+      groups: ["algum grupoo"],
+      userContact: "mattheus",
+    };
+    const contactGroupAllProprierts = new ContactsGroups(
+      requestContactsGroupAllProprierts
+    );
+    expect(contactGroupAllProprierts.id).toStrictEqual(
+      requestContactsGroupAllProprierts.id
+    );
   });
 });

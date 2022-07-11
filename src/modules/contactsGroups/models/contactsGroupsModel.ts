@@ -9,7 +9,7 @@ export class ContactsGroups {
   createdAt: Date;
   updatedAt: Date;
   constructor(propsCreatContactGroup: ICreateContactsGroups) {
-    this.id = randomUUID();
+    this.id = propsCreatContactGroup.id ?? randomUUID();
     this.groups = propsCreatContactGroup.groups;
     this.userContact = propsCreatContactGroup.userContact;
     this.createdAt = new Date();
